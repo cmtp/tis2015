@@ -26,10 +26,15 @@ session_start();
     elseif(!isset($_SESSION['nombre_usuario'])){
         header("Location: index.php");
     }
+    //echo "submit: ".$_POST['nuevo'];
 /*----------------------FIN VERIFICACION------------------------------------*/
-$directorio='../public_html';//LINUX
+//$directorio='../public_html';//LINUX
+$directorio='backups';//LINUX
+//echo $directorio."<br>";
 //$directorio='backups';//WINDOWS
 $mensaje=NULL;
+// echo $_GET['backup']."<br>";
+// echo $_GET['error']."<br>";
 if(isset($_GET['backup']) && isset($_GET['file'])){
 	$file=$directorio."/".$_GET['file'];
 	$tipo_backup="";
@@ -45,6 +50,7 @@ if(isset($_GET['backup']) && isset($_GET['file'])){
       <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>".$tipo_backup."</div></div>";
 }
 if(isset($_GET['error'])){
+  
 	$tipo_error="";
 	if($_GET['error']==1){
 		$tipo_error="No se especif&oacute; ning&uacute;n archivo para realizar la restauraci&oacute;n de la Base de Datos.";
@@ -63,6 +69,7 @@ if(isset($_GET['error'])){
 			<strong>Error: </strong>".$tipo_error."
 		  </div></div>";
 }
+//echo $_POST['nuevo']."<br>";
 if(isset($_POST['nuevo'])){
 	$fechaDeLaCopia = date("dmY-His");
 	$name_file="mysql-tis-".$fechaDeLaCopia.".sql";
@@ -70,17 +77,16 @@ if(isset($_POST['nuevo'])){
 	$sistema="show variables where variable_name= 'basedir'";
 	$restore=mysql_query($sistema);
 	$DirBase=mysql_result($restore,0,"value");
-	$primero=substr($DirBase,0,1);
+  $primero=substr($DirBase,0,1);
 	if ($primero=="/") {
-	    $DirBase=$DirBase."bin/mysqldump";
-
+	    $DirBase=$DirBase."/bin/mysqldump";
 	}
 	else
 	{
-	    $DirBase=$DirBase."bin\mysqldump";
+	    $DirBase=$DirBase."\bin\mysqldump";
 
 	}
-    $executa="$DirBase -h webtisdb.cs.umss.edu.bo -u munisoft -pWSVBtmXg tis_munisoft > ".$name_file;
+    $executa="$DirBase -h localhost -u munisoft -pWSVBtmXg tis_munisoft > ".$ficheroDeLaCopia;
     system($executa,$resultado);
 	if ($resultado)  //si hay error
 	{
@@ -90,7 +96,6 @@ if(isset($_POST['nuevo'])){
 			$sql = "INSERT INTO backup_log(nombre_backup, fecha_creacion, observacion)
 					VALUES ('$name_file',CURRENT_TIMESTAMP,'Respaldo creado por el administrador exitosamente')";
 	        $result = mysql_query($sql,$conn) or die(mysql_error());
-            system("mv ../prueba.sql ../backups/archivos.");
 			header('Location: backup.php?backup=2&file='.$name_file);
 	}
 }
@@ -102,6 +107,7 @@ if(isset($_POST['aceptar'])){
 			$restore=mysql_query($sistema);
 			$DirBase=mysql_result($restore,0,"value");
 			$primero=substr($DirBase,0,1);
+      echo $primero;
 			if ($primero=="/") {
 			    $DirBase=$DirBase."/bin/mysql";
 			}
@@ -109,11 +115,11 @@ if(isset($_POST['aceptar'])){
 			{
 			    $DirBase=$DirBase."\bin\mysql";
 			}
-			$executa = "$DirBase -h webtisdb.cs.umss.edu.bo -u munisoft -pWSVBtmXg  tis_munisoft < $backup_file";
+			$executa = "$DirBase -h localhost -u munisoft -pWSVBtmXg  tis_munisoft < $backup_file";
 			system($executa,$resultado);
 			if ($resultado)  //si hay error
 			{
-				header('Location: backup.php?error=3');//error al recuperar
+				header('Location: backup.php?error=3&dirbase='.$_POST['archivo']);//error al recuperar
 			}
 			else  //si no hay error
 			{
@@ -212,10 +218,12 @@ include('header.php');
 			<div class="modal-body">
 				<?php
 					$ayer=date("Y-m-d");
-					$consulta_verifica="SELECT COUNT('id_bitacora') as cantidad from bitacora_bd where fecha_hora >= '$ayer 00:00:01'";
+          //echo $ayer;
+					$consulta_verifica="SELECT COUNT('id_bitacora') as cantidad from bitacora_bd where fecha_hora >= \"$ayer 00:00:01\"";
 					$res = mysql_query($consulta_verifica,$conn);
 					$row = mysql_fetch_array($res);
 					$cantidad=$row['cantidad'];
+          //echo $cantidad;
 					if ($cantidad>0) {
 						echo "Se ha registrado ".$cantidad." cambio(s) en la base de datos desde las 12:00 a.m. del d&iacute;a de hoy.</br>
 							Est&aacute; de acuerdo con generar un nuevo archivo de respaldo de la base de datos actual.</br>

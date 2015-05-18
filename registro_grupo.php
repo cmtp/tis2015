@@ -30,11 +30,16 @@ if(isset($_SESSION['nombre_usuario']))
 		$error=false;
 		/*VALORES GRUPO EMPRESA*/
 		$nombre_largo=$_POST['lname'];
+		//echo $nombre_largo;
 		$nombre_corto=$_POST['sname'];
+		//echo $nombre_corto;
 		$sociedad=$_POST['choose_sociedad'];
+		//echo $sociedad;
 		$consultor=$_POST['choose_consultor'];
+		//echo $consultor;
 		if (isset($_POST['metodologias'])) {
 			$metodologias=$_POST['metodologias'];
+			//echo $metodologias;
 			if (sizeof($metodologias)==0) {
 				$error=true;
 				$error_metodologia="Debe seleccionar m&iacute;nimamente una metodologia";
@@ -46,13 +51,21 @@ if(isset($_SESSION['nombre_usuario']))
 		}
 		/*VALORES REPRESENTANTE LEGAL*/
 		$usuario=trim($_POST['username']);
+		//echo $usuario."<br>";
 		$clave=trim($_POST['password']); /*$clave = md5($pass); QUITADO ==> CONTRASEÑA SIMPLE*/
+		//echo $clave."<br>";
 		$cod_sis = trim($_POST['codSIS']);
+		//echo $cod_sis."<br>";
 		$eMail=trim($_POST['email']);
+		//echo $eMail."<br>";
 		$nombre_rep = $_POST['firstname'];
+		//echo $nombre_rep."<br>";
 		$apellido_rep = $_POST['lastname'];
+		//echo $apellido_rep."<br>";
 		$telefono_rep = trim($_POST['telf']);
+		//echo $telefono_rep."<br>";
 		$carrera_rep = $_POST['choose_carrera'];
+		//echo $carrera_rep."<br>";
 
 		if ($sociedad=='-1' ) {
 			$error=true;
@@ -347,6 +360,7 @@ if(isset($_SESSION['nombre_usuario']))
 								  	<label id="error_user" class="error"><?php if(isset($error_carrera)){ echo $error_carrera; } ?></label>
 								  </div>
 								</div>
+								
 								<div class="control-group">
 									<div class="controls">
 						         <button name="enviar"type="submit" class="btn btn-primary" id="enviar"><i class="icon-ok"></i> Registrar</button>

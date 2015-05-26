@@ -34,8 +34,9 @@ if(isset($_POST['enviar'])){
 	//echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
   $apellido=$_POST['lastname'];
 	$nombre=$_POST['firstname'];
-  $encontrado=strpos($clave, $nombre);
-	$telf=trim($_POST['telf']);
+  $nombre_encontrado=strpos($clave, $nombre);
+	$apellido_encontrado=strpos($clave,$apellido);
+  $telf=trim($_POST['telf']);
 	$eMail=trim($_POST['email']);
 	$consulta_usuario = mysql_query("SELECT nombre_usuario from usuario 
 	                          where nombre_usuario='$usuario'AND (gestion=1 OR gestion=$id_gestion)",$conn)
@@ -56,22 +57,30 @@ if(isset($_POST['enviar'])){
 		       }
       
 	     }
-       if($encontrado !== false)//controlar nombre en el password
+       if($nombre_encontrado !== false)//controlar nombre en el password
       {     
-          if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
                   $error_pass="Su contraseña no debe contener su nombre";
                   $error=true;
-           }
+           //}
       
        }
-      /*if($encontrado !== false)//Controlar apellido en el password
+      if($apellido_encontrado !== false)//Controlar apellido en el password
       {     
-          if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
                   $error_pass="Su contraseña no debe contener su apellido";
                   $error=true;
-           }
+           //}
       
-      }*/
+      }
+      if($apellido_encontrado !== false && $nombre_encontrado !== false)//Controlar apellido en el password
+      {     
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener datos personales";
+                  $error=true;
+           //}
+      
+      }
 	     if(is_array($resultado_email) && !empty($resultado_email)){
 	     	if (strcmp($resultado_email['email'],$eMail)==0) {
 		              $error_email="El correo electr&oacute;nico ya esta registrado";

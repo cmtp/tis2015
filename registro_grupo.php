@@ -53,9 +53,9 @@ if(isset($_SESSION['nombre_usuario']))
 		$usuario=trim($_POST['username']);
 		//echo $usuario."<br>";
 		$clave=trim($_POST['password']); /*$clave = md5($pass); QUITADO ==> CONTRASEÑA SIMPLE*/
-		//echo $clave."<br>";
+		echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
 		$cod_sis = trim($_POST['codSIS']);
-		//echo $cod_sis."<br>";
+		echo $cod_sis."<br>";
 		$eMail=trim($_POST['email']);
 		//echo $eMail."<br>";
 		$nombre_rep = $_POST['firstname'];
@@ -338,7 +338,7 @@ if(isset($_SESSION['nombre_usuario']))
 								<div class="control-group">
 								  <label class="control-label">Correo Electr&oacute;nico:</label>
 								  <div class="controls">
-									<input type="text" placeholder="E-mail del representante legal" name="email"  id="email" value='<?php echo $eMail; ?>'>
+									<input type="email" placeholder="E-mail del representante legal" name="email"  id="email" value='<?php echo $eMail; ?>'>
 									<label id="error_email" class="error"><?php if(isset($error_email)){ echo $error_email; } ?></label>
 								  </div>
 								</div>

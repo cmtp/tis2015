@@ -31,8 +31,10 @@ if(isset($_POST['enviar'])){
 	/*VALORES DE FORMULARIO*/
 	$usuario=trim($_POST['username']);
 	$clave=trim($_POST['password']); /*$clave = md5($pass); QUITADO ==> CONTRASEÑA SIMPLE*/
-	$apellido=$_POST['lastname'];
+	//echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
+  $apellido=$_POST['lastname'];
 	$nombre=$_POST['firstname'];
+  $encontrado=strpos($clave, $nombre);
 	$telf=trim($_POST['telf']);
 	$eMail=trim($_POST['email']);
 	$consulta_usuario = mysql_query("SELECT nombre_usuario from usuario 
@@ -41,9 +43,8 @@ if(isset($_POST['enviar'])){
 	$consulta_email = mysql_query("SELECT email from usuario 
 	                         where email='$eMail'AND (gestion=1 OR gestion=$id_gestion)",$conn)
 	                         or die("Could not execute the select query.");                         
-
 	$resultado_usuario = mysql_fetch_assoc($consulta_usuario);
-	$resultado_email = mysql_fetch_assoc($consulta_email);
+  $resultado_clave = mysql_fetch_assoc($consulta_pass);
 	$error=false;
 	$tiene_curriculum=0;
 	$pdf=NULL;
@@ -52,9 +53,25 @@ if(isset($_POST['enviar'])){
 		      if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
 		              $error_user="El usuario ya esta registrado";
 		              $error=true;
-		       }   
+		       }
       
 	     }
+       if($encontrado !== false)//controlar nombre en el password
+      {     
+          if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener su nombre";
+                  $error=true;
+           }
+      
+       }
+      /*if($encontrado !== false)//Controlar apellido en el password
+      {     
+          if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener su apellido";
+                  $error=true;
+           }
+      
+      }*/
 	     if(is_array($resultado_email) && !empty($resultado_email)){
 	     	if (strcmp($resultado_email['email'],$eMail)==0) {
 		              $error_email="El correo electr&oacute;nico ya esta registrado";
@@ -179,6 +196,7 @@ if(isset($_POST['enviar'])){
 								  <label class="control-label" for="pass">Contrase&ntilde;a: </label>
 								  <div class="controls">
 									<input type="password" placeholder="Contrase&ntilde;a" name="password" id="password">
+                  <label id="error_pass" class="error"><?php if(isset($error_pass)) {echo $error_pass; } ?></label>
 								  </div>
 								</div>
 								<div class="control-group">
@@ -196,7 +214,7 @@ if(isset($_POST['enviar'])){
 								<div class="control-group">
 								  <label class="control-label" for="pass">Correo Electr&oacute;nico:</label>
 								  <div class="controls">
-									<input type="text" placeholder="E-mail" name="email"  id="email" value='<?php echo $eMail; ?>'>
+									<input type="email" placeholder="E-mail" name="email"  id="email" value='<?php echo $eMail; ?>'>
 									<label id="error_email" class="error"><?php if(isset($error_email)){ echo $error_email; } ?></label>
 								  </div>
 								</div>

@@ -2,6 +2,7 @@
 	if(!isset($titulo)){
 		header('Location: index.php');
 	}
+  //echo isset($_SESSION['nombre_usuario']);
 	if (isset($_SESSION['nombre_usuario'])){
 		$sesion_valida=true;
 		$nombre_usuario=$_SESSION['nombre_usuario'];
@@ -158,6 +159,9 @@
     	           		</div><!-- FIN USUARIOS-->
     	           		<?php } ?>
                 	</div>
+                  <?php
+                    $conectado=0;
+                    $conectado=isset($_SESSION['nombre_usuario']); ?>
             <div class="row-fluid">
             <div class="menu">
                         <ul class="nav">
@@ -169,10 +173,10 @@
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="iniciar_sesion_grupo.php" id="link_grupo_ingresar">Ingresar </a>
+                                        <a href="iniciar_sesion_grupo.php" id="link_grupo_ingresar" onclick="controlar(<?php echo $conectado; ?>);">Ingresar </a>
                                     </li>
                                     <li>
-                                        <a href="registro_grupo.php" id="link_grupo_registro">Registrarse</a>
+                                        <a href="registro_grupo.php" id="link_grupo_registro" onclick="controlar(<?php echo $conectado; ?>);">Registrarse</a>
                                     </li>
                                 </ul>
                             </li>
@@ -181,10 +185,10 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="iniciar_sesion_consultor.php" id="link_consultor_ingresar">Ingresar</a>
+                                        <a tabindex="-1" href="iniciar_sesion_consultor.php" id="link_consultor_ingresar" onclick="controlar(<?php echo $conectado; ?>);">Ingresar</a>
                                     </li>
                                     <li>
-                                        <a tabindex="-1" href="registro_consultor.php" id="link_consultor_registro">Registrarse</a>
+                                        <a tabindex="-1" href="registro_consultor.php" id="link_consultor_registro" onclick="controlar(<?php echo $conectado; ?>);">Registrarse</a>
                                     </li>
                                 </ul>
                             </li>
@@ -330,3 +334,13 @@
 			<!-- content starts -->
 			<?php }
 			?>
+<script>
+  function controlar(sesion)
+  {
+    var conec=sesion;
+    if(conec==1)
+    {
+      alert("Cierre su cuenta para cambiar de usuario");
+    }
+  }
+</script>

@@ -125,6 +125,10 @@ if(isset($_POST['enviar'])){
             }
 
    			}
+        else {
+          $error=true;
+          $error_curriculum='Debe ingresar un curriculum obligatoriamente';
+        }
 
 	     if(!$error){/*SI NO HAY NINGUN ERROR REGISTRO*/
 	        $bitacora = mysql_query("CALL iniciar_sesion(1)",$conn)
@@ -230,7 +234,7 @@ if(isset($_POST['enviar'])){
 								<div class="control-group">
 								  <label class="control-label" for="fileInput">Curr&iacute;culo:</label>
 								  <div class="controls">
-									<input class="" name="pdf" id="pdf"  type="file" />
+									<input class="" name="pdf" id="pdf"  type="file"/>
 									<label id="error_curriculum" class="error"><?php if(isset($error_curriculum)){ echo $error_curriculum; } ?></label>
 								  </div>
 								</div>

@@ -62,6 +62,8 @@ if(isset($_SESSION['nombre_usuario']))
 		//echo $nombre_rep."<br>";
 		$apellido_rep = $_POST['lastname'];
 		//echo $apellido_rep."<br>";
+		$nombre_encontrado=strpos($clave, $nombre_rep);
+		$apellido_encontrado=strpos($clave,$apellido_rep);
 		$telefono_rep = trim($_POST['telf']);
 		//echo $telefono_rep."<br>";
 		$carrera_rep = $_POST['choose_carrera'];
@@ -112,6 +114,30 @@ if(isset($_SESSION['nombre_usuario']))
 			       }   
 	      
 		     }
+		  if($nombre_encontrado !== false)//controlar nombre en el password
+      {     
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener su nombre";
+                  $error=true;
+           //}
+      
+       }
+      if($apellido_encontrado !== false)//Controlar apellido en el password
+      {     
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener su apellido";
+                  $error=true;
+           //}
+      
+      }
+      if($apellido_encontrado !== false && $nombre_encontrado !== false)//Controlar apellido en el password
+      {     
+          //if (strcmp($resultado_usuario['nombre_usuario'],$usuario)==0) { 
+                  $error_pass="Su contraseña no debe contener datos personales";
+                  $error=true;
+           //}
+      
+      }
 		   if(is_array($resultado_email) && !empty($resultado_email)){
 		     	if (strcmp($resultado_email['email'],$eMail)==0) {
 			              $error_email="El correo electr&oacute;nico ya esta registrado";
@@ -302,6 +328,7 @@ if(isset($_SESSION['nombre_usuario']))
 								  <label class="control-label">Contrase&ntilde;a: </label>
 								  <div class="controls">
 									<input type="password" placeholder="Contrase&ntilde;a" name="password" id="password">
+								  <label id="error_pass" class="error"><?php if(isset($error_pass)) {echo $error_pass; } ?></label>
 								  </div>
 								</div>
 								<div class="control-group">

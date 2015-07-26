@@ -171,13 +171,12 @@ if(isset($_SESSION['nombre_usuario']))
 		        $sql = "INSERT INTO usuario (nombre_usuario, clave,nombre,apellido,telefono, email, tipo_usuario, habilitado,gestion)
 		                VALUES ('$usuario','$clave','$nombre_rep','$apellido_rep','$telefono_rep','$eMail',4,0,$id_gestion)";
 		        $result = mysql_query($sql,$conn) or die(mysql_error());
-			
-			/*ID DEL USUARIO PARA EL INTEGRANTE*/
+						//codigo aniadido para corregir error en registro de grupo empresas
 		        $sql = "SELECT id_usuario from usuario where nombre_usuario='$usuario' and gestion=$id_gestion";
 		        $result = mysql_query($sql,$conn) or die(mysql_error());
 		        $resultado_user = mysql_fetch_assoc($result);
 		        $id_user=(int)$resultado_user['id_usuario'];
-		        
+		        /*ID DEL USUARIO PARA EL INTEGRANTE*/
 		        $sql = "SELECT count(id_grupo_empresa) as num from grupo_empresa";
 		        $result = mysql_query($sql,$conn) or die(mysql_error());
 		        $resultado_gr = mysql_fetch_assoc($result);

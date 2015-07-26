@@ -104,7 +104,11 @@ $(document).ready(function() {
 				equalTo: "#password"
 			},
 			email: {
+				
 				required: true,
+				minlength: 5,
+				maxlength: 25,
+				equalTo: "#email", 
 				email: true
 			},
 			topic: {
@@ -203,7 +207,7 @@ $(document).ready(function() {
 				maxlength: "La contrase&ntilde;a debe consistir de 20 caracteres maximo",
 				equalTo: "Las contrase&ntilde;as no coinciden"
 			},
-			email: "Ingrese un correo valido",
+			email: "Ingrese un correo valido no sea chistoso",
 			agree: "Debe aceptar nuestros terminos",
 			descripcion: {
 				required: "Ingrese una descripci&oacute;n",

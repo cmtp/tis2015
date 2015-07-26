@@ -340,7 +340,7 @@
     var conec=sesion;
     if(conec==1)
     {
-      alert("Cierre su cuenta para cambiar de usuario");
+      alert("Cierre su cuenta para registrar o cambiar de usuario");
     }
   }
 </script>

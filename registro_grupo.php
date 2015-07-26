@@ -53,7 +53,7 @@ if(isset($_SESSION['nombre_usuario']))
 		$usuario=trim($_POST['username']);
 		//echo $usuario."<br>";
 		$clave=trim($_POST['password']); /*$clave = md5($pass); QUITADO ==> CONTRASEÑA SIMPLE*/
-		echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
+		//echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
 		$cod_sis = trim($_POST['codSIS']);
 		echo $cod_sis."<br>";
 		$eMail=trim($_POST['email']);
@@ -178,9 +178,14 @@ if(isset($_SESSION['nombre_usuario']))
 		        $resultado_user = mysql_fetch_assoc($result);
 		        $id_user=(int)$resultado_user['id_usuario'];
 		        
+		        $sql = "SELECT count(id_grupo_empresa) as num from grupo_empresa";
+		        $result = mysql_query($sql,$conn) or die(mysql_error());
+		        $resultado_gr = mysql_fetch_assoc($result);
+		        $num = (int)$resultado_gr['num'];
+
 		        /*INSERTAR LA GRUPO EMPRESA*/
-		        $sql = "INSERT INTO grupo_empresa (nombre_largo, nombre_corto,sociedad, consultor_tis)
-		                VALUES ('$nombre_largo','$nombre_corto','$sociedad','$consultor')";
+		        $sql = "INSERT INTO grupo_empresa (id_grupo_empresa,nombre_largo, nombre_corto,sociedad, consultor_tis)
+		                VALUES ($num+1,'$nombre_largo','$nombre_corto','$sociedad','$consultor')";
 		        $result = mysql_query($sql,$conn) or die(mysql_error());
 
 		        /*ID DE LA GRUPO EMPRESA PARA EL INTEGRANTE*/
@@ -244,7 +249,12 @@ if(isset($_SESSION['nombre_usuario']))
 						if($gestion_valida){
 							if ($act_2==1) {
 								if (!$act_2_espera) {	
-						?>	
+						?>					
+						<ul class="breadcrumb">
+							<li>
+								<a href="lista_empresas.php">Ver Empresas Registradas</a>
+							</li>
+						</ul>
 		                  	<form name="form-data" class="form-horizontal cmxform" method="POST" id="signupForm" accept-charset="utf-8" action="registro_grupo.php">
 								<fieldset>
 								<legend><h5>Datos de la Grupo Empresa:</h5></legend>

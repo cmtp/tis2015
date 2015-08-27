@@ -86,7 +86,7 @@ if(isset($_POST['nuevo'])){
 	    $DirBase=$DirBase."\bin\mysqldump";
 
 	}
-    $executa="$DirBase -h localhost -u munisoft -pWSVBtmXg tis_munisoft > ".$ficheroDeLaCopia;
+    $executa="$DirBase -h localhost -u root -proot tis_munisoft > ".$ficheroDeLaCopia;
     system($executa,$resultado);
 	if ($resultado)  //si hay error
 	{
@@ -102,12 +102,13 @@ if(isset($_POST['nuevo'])){
 if(isset($_POST['aceptar'])){
 	if(isset($_POST['archivo'])){
 		$backup_file=$directorio."/".$_POST['archivo'];
+    //echo $backup_file;
 		if(file_exists($backup_file) && is_readable($backup_file)){
 			$sistema="show variables where variable_name= 'basedir'";
 			$restore=mysql_query($sistema);
 			$DirBase=mysql_result($restore,0,"value");
 			$primero=substr($DirBase,0,1);
-      echo $primero;
+      //echo $primero;
 			if ($primero=="/") {
 			    $DirBase=$DirBase."/bin/mysql";
 			}
@@ -115,7 +116,17 @@ if(isset($_POST['aceptar'])){
 			{
 			    $DirBase=$DirBase."\bin\mysql";
 			}
-			$executa = "$DirBase -h localhost -u munisoft -pWSVBtmXg  tis_munisoft < $backup_file";
+      /*
+      *  vaciar base de datos
+      *//*
+      $sql = "SET FOREIGN_KEY_CHECKS=0;";
+      $result = mysql_query($sql,$conn) or die(mysql_error());
+      $sql = "DROP TABLE actividad_grupo_empresa, anuncio, avance_semanal, backup_log, bitacora_bd, bitacora_sesion, carrera, consultor_tis, documento_consultor, entrega_producto, fase_convocatoria, gestion_empresa_tis, grupo_empresa, integrante, mensaje, metodologia, metodologia_grupo_empresa, notificacion, rol, rol_integrante, sesion, sociedad, tarea, TBL_DUMMY, tipo_fase_convocatoria, tipo_notificacion, tipo_usuario, usuario;";
+      $result = mysql_query($sql,$conn) or die(mysql_error());
+			$sql = "SET FOREIGN_KEY_CHECKS=1;";
+      $result = mysql_query($sql,$conn) or die(mysql_error());*/
+      $executa = "$DirBase -h localhost -u root -proot  tis_munisoft < $backup_file";
+      //echo $executa;
 			system($executa,$resultado);
 			if ($resultado)  //si hay error
 			{

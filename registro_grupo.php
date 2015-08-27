@@ -55,7 +55,7 @@ if(isset($_SESSION['nombre_usuario']))
 		$clave=trim($_POST['password']); /*$clave = md5($pass); QUITADO ==> CONTRASEÑA SIMPLE*/
 		//echo "<script type=\"text/javascript\">alert(\"".$clave."\");</script><br>";
 		$cod_sis = trim($_POST['codSIS']);
-		echo $cod_sis."<br>";
+		//echo $cod_sis."<br>";
 		$eMail=trim($_POST['email']);
 		//echo $eMail."<br>";
 		$nombre_rep = $_POST['firstname'];
@@ -180,7 +180,7 @@ if(isset($_SESSION['nombre_usuario']))
 		        $sql = "SELECT count(id_grupo_empresa) as num from grupo_empresa";
 		        $result = mysql_query($sql,$conn) or die(mysql_error());
 		        $resultado_gr = mysql_fetch_assoc($result);
-		        $num = (int)$resultado_gr['num'];
+		        $num = (int)$resultado_gr['num']+100;
 
 		        /*INSERTAR LA GRUPO EMPRESA*/
 		        $sql = "INSERT INTO grupo_empresa (id_grupo_empresa,nombre_largo, nombre_corto,sociedad, consultor_tis)

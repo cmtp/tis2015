@@ -160,10 +160,14 @@ $(document).ready(function(){
 		var date = eventObj.data.calDayDate;
 		// store date in our global js variable for access later
 		clickDate = date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
+    //console.log(clickDate);
 		// open our add event dialog
 		var finGestion='<?php echo$fin_gestion;?>';
-		
-		 if(clickDate<finGestion){
+    var fecha1 = new Date("'"+clickDate+"'");
+    var fecha2 = new Date("'"+finGestion+"'");
+    //console.log(finGestion);
+    console.log(fecha1<fecha2);
+		 if(fecha1<fecha2){
         		$('#add-event-form').dialog('open');}
 		 else{
 			 alert("seleccione una fecha dentro del plazo de la gestion actual");

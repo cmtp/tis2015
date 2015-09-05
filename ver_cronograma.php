@@ -454,6 +454,7 @@ include('header.php');
                                                     <th>Fecha Conclusi&oacute;n</th>
                                                     <th>Avance (%)</th>
                                                     <th>Documentos</th>
+                                                    <th>Calificación</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -482,11 +483,11 @@ include('header.php');
 
                                            $arx=$rowsta["resultado_obtenido"];
                                       if(strcmp($arx," ")==0 || $arx==NULL){
-                                            echo "<td>No existe registro</td>";
+                                            echo "<td>No existe registro</td><td>No disponible</td>";
                                       }else{
-                                        echo"<td class=\"center\"> <a href= ".$arx."> <i class=\"icon-zoom-in\"></i> Ver Avance</a></td>  ";
+                                        echo"<td class=\"center\"> <a href= ".$arx."> <i class=\"icon-zoom-in\"></i> Ver Avance</a></td><td><a href=''>Revisar</a></td>  ";
                                       }
-                                        echo "	</tr> ";
+                                        echo "</tr> ";
                                             $identia++;
                                             }
                                             ?>

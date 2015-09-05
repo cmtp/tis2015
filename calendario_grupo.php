@@ -58,19 +58,21 @@ include('header.php');
 						<?php
                                 if($gestion_valida){
                                  /*BUSCAR  el id de la grupo empresa*/
+                                 //echo $_SESSION['nombre_usuario'];
                 		        $consulta_id_ge = mysql_query("SELECT ge.id_grupo_empresa
                 												FROM usuario u,integrante i,grupo_empresa ge
                 	                                            WHERE u.nombre_usuario='".$_SESSION['nombre_usuario']."' and u.id_usuario=i.usuario and i.grupo_empresa =ge.id_grupo_empresa",$conn)
                 		                         or die("Could not execute the select query.");
                 		        $resultado_id_ge = mysql_fetch_assoc($consulta_id_ge);
-                		        $rep_id_ge=(int)$resultado_id_ge['id_grupo_empresa'];
+                            $rep_id_ge=(int)$resultado_id_ge['id_grupo_empresa'];
+                            //echo $rep_id_ge;
                                 $consulta_actividades_empresa = "SELECT age.id_actividad,age.descripcion
                                                                             FROM entrega_producto ep,actividad_grupo_empresa age
                                                                             WHERE ep.grupo_empresa='$rep_id_ge' and ep.id_entrega_producto=age.entrega_producto";
                                 $resultado_actividades_empresa = mysql_query($consulta_actividades_empresa);
                                 $num_ep =     mysql_num_rows($resultado_actividades_empresa);
-
-
+                                //echo $num_ep;
+                                
                           if  ($num_ep ==0){
                            echo "<div align=\"center\">
 				                        <h4><i class=\"icon-info-sign\"></i>
@@ -78,7 +80,6 @@ include('header.php');
 				                      	</div>";
 
                           }
-
                         else if ($cantidad_valida) { ?>
 
 						<div id="example" style="margin: auto; width:80%; height: 80%">

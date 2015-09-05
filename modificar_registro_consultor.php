@@ -101,17 +101,20 @@ if(isset($_POST['enviar'])){
     }
 
 	 	if(!$error){/*SI NO HAY NINGUN ERROR REGISTRO*/
+	 		$bandera=1;
+	 		//print "error ".$error;
 	 	$bitacora = mysql_query("CALL iniciar_sesion(".$_SESSION['id'].")",$conn)
 							or die("Error no se pudo realizar cambios.");
 	        $sql = "UPDATE usuario as u
 					SET nombre_usuario='$usuario', clave='$clave', nombre='$nombre',apellido='$apellido', telefono='$telfFijo',email='$eMail'
 					WHERE u.id_usuario=$id_usuario";
-	        $result = mysql_query($sql,$conn) or die(mysql_error());
-
+	        $result = mysql_query($sql,$conn) or die(mysql_error()); 
 	        header('Location: modificar_registro_consultor.php?value='.$quien);
 			
 	     }
 	}
+	
+	
 	/*----------------------FIN VALIDAR REGISTRO------------------------*/
 	include('header.php');
  ?>
@@ -195,5 +198,11 @@ if(isset($_POST['enviar'])){
 		                </div>
 				</div><!--/FORMULARIO DE INGRESO-->	
 			</div>
-
+			<script type="text/javascript">
+			window.onsubmit = function() {
+				//var hola ="<?php $a; ?>";
+				alert("Se guardo satisfactoriamente ");
+				//console.log("error "+hola);
+			}
+			</script>
 <?php include('footer.php'); ?>

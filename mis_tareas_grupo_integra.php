@@ -66,21 +66,21 @@ $no_ge=$resultado_id_ge['nombre_corto'];
   }
  ?>
 <script type="text/javascript">
-	function imprimir(){
-  var objeto=document.getElementById('print');  //obtenemos el objeto a imprimir
-  var ventana=window.open('','_blank');  //abrimos una ventana vacía nueva
-  ventana.document.write(objeto.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana
-  ventana.document.close();  //cerramos el documento
+  function imprimir(){
+    var objeto=document.getElementById('print');  //obtenemos el objeto a imprimir
+    var ventana=window.open('','_blank');  //abrimos una ventana vacía nueva
+    ventana.document.write(objeto.innerHTML);  //imprimimos el HTML del objeto en la nueva ventana
+    ventana.document.close();  //cerramos el documento
 
   	var css = ventana.document.createElement("link");
-	css.setAttribute("href", "css/style.css");
-	css.setAttribute("rel", "stylesheet");
-	css.setAttribute("type", "text/css");
-	ventana.document.head.appendChild(css);
+	  css.setAttribute("href", "css/style.css");
+	  css.setAttribute("rel", "stylesheet");
+	  css.setAttribute("type", "text/css");
+	  ventana.document.head.appendChild(css);
 
 
-  ventana.print();  //imprimimos la ventana
-  ventana.close();  //cerramos la ventana
+    ventana.print();  //imprimimos la ventana
+    ventana.close();  //cerramos la ventana
 }
 
 </script>
@@ -112,6 +112,7 @@ $no_ge=$resultado_id_ge['nombre_corto'];
                                           WHERE t.responsable=".$_SESSION['id']." and t.actividad=age.id_actividad and age.entrega_producto=ep.id_entrega_producto";
                               $resultado = mysql_query($entregas);
                               $num_entre=mysql_num_rows($resultado);
+                              //echo $num_entre;
                                 if($num_entre>0){    ?>
                                     <!--    <form name="form-data" class="form-horizontal cmxform" method="POST" action="conexion/validar_grupo.php" accept-charset="utf-8">     -->
                     							<table class="table table-striped table-bordered  datatable" >

@@ -132,7 +132,7 @@ if(isset($_POST['enviar'])){
 								</div>
 								<div class="control-group">
 									<div class="controls">
-						         <button name="enviar"type="submit" class="btn btn-primary" id="enviar" onclick="mensajeSubmit();"><i class="icon-ok"></i> Guardar Cambios</button>
+						         <button name="enviar"type="submit" class="btn btn-primary" id="enviar"><i class="icon-ok"></i> Guardar Cambios</button>
 								 <a href="javascript:history.back();" class="btn"><i class="icon-remove"></i> Cancelar</a>
 								 </div>
 								 </div>
@@ -141,10 +141,11 @@ if(isset($_POST['enviar'])){
 		                </div>
 				</div><!--/FORMULARIO DE INGRESO-->	
 			</div>
-<script type="text/javascript">
-	function mensajeSubmit()
-	{
-		alert("se guardaron los datos correctamente");
-	}
-</script>
+			<script type="text/javascript">
+				window.onsubmit = function() {
+				//var hola ="<?php $a; ?>";
+				alert("Se guardo satisfactoriamente ");
+				//console.log("error "+hola);
+			}
+			</script>
 <?php include('footer.php'); ?>

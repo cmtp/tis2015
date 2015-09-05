@@ -66,7 +66,7 @@ if (isset($_POST['enviar'])) {
 		if(@checkdate($ini_mes, $ini_dia, $ini_year)){
 			if (@checkdate($fin_mes, $fin_dia, $fin_year)) {
 				if($inicio>=$fecha){//corecto
-					if ($fin>$inicio) {//corecto sobreescribir base de datos
+					if ($fin>=$inicio) {//corecto sobreescribir base de datos
                                          //busca la fecha de entrega de producto
                                            $ep_feini=$fecha;
                                            $ep_fefin=$fecha;

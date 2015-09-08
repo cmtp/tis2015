@@ -66,4 +66,32 @@
 					</form>
 				</div><!--/span-->
 			</div><!--/row-->
+			<!-- Ayuda cinco-->
+  <div class="modal fade" id="helpmodal5" role="dialog">
+    	<div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-5">
+        <table>
+        	<td>
+        	<img src="img_help/help5.png" alt="ayuda 1">
+        	</td>
+        	<td><span class="">introduzca los datos del administrador</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="help5"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <?php include('footer.php'); ?>

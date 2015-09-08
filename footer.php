@@ -16,7 +16,7 @@
 
 		<footer>
 			<p class="pull-left">&copy; <a href="#" target="_blank">Derechos Reservados </a> <?php echo date('Y') ?></p>
-			<p class="pull-right">Powered by: <a href="mailto:unisoft.srl.2014@gmail.com">Unisoft S.R.L</a></p>
+			<p class="pull-right">Powered by: <a href="mailto:unisoft.srl.2014@gmail.com">Sociedad Digital</a></p>
 		</footer>
 		<?php } ?>
 
@@ -269,8 +269,36 @@ $(document).ready(function() {
             }
 		}
 	});
-
-	
+/* CODIGO IMPLEMENTADO DE AYUDA*/
+/*$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});*/
+	$(function(){
+        $("#helpmodal1").modal();
+});
+	$(document).ready(function(){
+    $("#help1").click(function(){
+        $("#helpmodal2").modal();
+    });
+	});
+	$(document).ready(function(){
+    $("#help2").click(function(){
+        $("#helpmodal3").modal();
+    });
+	});
+	$(document).ready(function(){
+    $("#help3").click(function(){
+        $("#helpmodal4").modal();
+    });
+	});
+	$(function(){
+        $("#helpmodal5").modal();
+	});
+	/**
+=================FIN AYUDA=======================
+**/
 	// propose username by combining first- and lastname
 	$("#username").focus(function() {
 		var firstname = $("#firstname").val();
@@ -426,8 +454,6 @@ $(document).ready(function() {
 
 
 
-
-
  <?php
  if(strcmp($titulo,"Planificar Tareas Grupo Empresa")==0){
  	include ('jsr/calendarfooter.php');
@@ -436,5 +462,6 @@ $(document).ready(function() {
  ?>
 
 <!--  fin Calendario de tareas -->
+
 </body>
 </html>

@@ -198,5 +198,115 @@ include('header.php');
                     <?php
                     }
                     ?>
-
+<div class="modal fade" id="helpmodals9" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s9">
+        <table>
+            <td>
+            <img src="img_help/helps9.png" alt="ayuda 1">
+            </td>
+            <td><span class="">habilitar o desabilitar a un grupo empresa</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps9"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+     <!-- administrar grupo empresa-->
+  <div class="modal fade" id="helpmodals10" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s10">
+        <table>
+            <td>
+            <img src="img_help/helps10.png" alt="ayuda 1">
+            </td>
+            <td><span class="">observar la informacion del grupo</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps10"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+   <!-- administrar grupo empresa-->
+  <div class="modal fade" id="helpmodals11" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s11">
+        <table>
+            <td>
+            <img src="img_help/helps11.png" alt="ayuda 1">
+            </td>
+            <td><span class="">habilitar a los integrantes de la grupo empresa</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps11"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+   <!-- administrar grupo empresa-->
+  <div class="modal fade" id="helpmodals12" role="dialog">
+        <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s12">
+        <table>
+            <td>
+            <img src="img_help/helps12.png" alt="ayuda 1">
+            </td>
+            <td><span class="">elija el nombre de la empresa que desea revisar</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps12"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <?php include('footer.php'); ?>

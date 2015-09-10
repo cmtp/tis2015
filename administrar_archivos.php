@@ -135,6 +135,33 @@ include('header.php');
 					</div>
 				</div><!--/span-->
 				</div>
-               
+               <!-- administrar archivo-->
+  <div class="modal fade" id="helpmodals8" role="dialog">
+      <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s8">
+        <table>
+          <td>
+          <img src="img_help/helps8.png" alt="ayuda 1">
+          </td>
+          <td><span class="">puede administrar sus publicaciones para que sea visible o no</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps8"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
 
 <?php include('footer.php'); ?>

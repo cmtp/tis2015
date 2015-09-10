@@ -296,6 +296,66 @@ $(document).ready(function() {
 	$(function(){
         $("#helpmodal5").modal();
 	});
+	
+	$(function(){
+        $("#helpmodals1").modal();
+	});
+	
+	$(document).ready(function(){
+    $("#helps1").click(function(){
+        $("#helpmodals2").modal();
+    });
+	});
+	$(document).ready(function(){
+    $("#helps2").click(function(){
+        $("#helpmodals3").modal();
+    });
+	});
+	$(function(){
+        $("#helpmodals4").modal();
+    });
+	$(document).ready(function(){
+    $("#helps4").click(function(){
+        $("#helpmodals5").modal();
+    });
+	});
+	$(function(){
+        $("#helpmodals6").modal();
+    });
+    $(document).ready(function(){
+    $("#helps6").click(function(){
+        $("#helpmodals7").modal();
+    });
+	});
+	$(function(){
+        $("#helpmodals8").modal();
+    });
+    $(function(){
+        $("#helpmodals9").modal();
+    });
+    $(document).ready(function(){
+    $("#helps9").click(function(){
+        $("#helpmodals10").modal();
+    });
+	});
+	$(document).ready(function(){
+    $("#helps10").click(function(){
+        $("#helpmodals11").modal();
+    });
+	});
+	$(document).ready(function(){
+    $("#helps11").click(function(){
+        $("#helpmodals12").modal();
+    });
+	});
+	$(function(){
+        $("#helpmodals13").modal();
+    });
+    $(document).ready(function(){
+    $("#helps13").click(function(){
+        $("#helpmodals14").modal();
+    });
+	});
 	/**
 =================FIN AYUDA=======================
 **/

@@ -168,4 +168,91 @@ include('header.php');
 		                </div>
 				</div>
 			</div>
+			<!--nos muestra informacion del usuario -->
+			<div class="modal fade" id="helpmodals1" role="dialog">
+    			<div class="modal-dialog">
+    
+      			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s1">
+        <table>
+        	<td>
+        	<img src="img_help/helps1.png" alt="ayuda 1">
+        	</td>
+        	<td><span class="">nos muestra la informacion del usuario
+        	a!</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps1"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- imrimir y modificar registro -->
+			<div class="modal fade" id="helpmodals2" role="dialog">
+    			<div class="modal-dialog">
+    
+      			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s2">
+        <table>
+        	<td>
+        	<img src="img_help/helps2.png" alt="ayuda 1">
+        	</td>
+        	<td><span class="">nos da la opcion de imprimir y modificar registro
+        	!</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps2"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <!-- observar el curriculum -->
+			<div class="modal fade" id="helpmodals3" role="dialog">
+    			<div class="modal-dialog">
+    
+      			<!-- Modal content-->
+      			<div class="modal-content">
+        			<div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Ayuda del Sistema</h4>
+        </div>
+        <div class="modal-body">
+        <div class="help-s3">
+        <table>
+        	<td>
+        	<img src="img_help/helps3.png" alt="ayuda 1">
+        	</td>
+        	<td><span class="">podemos observar el regitro para imprimir
+        	!</span></td>
+        </table>
+        </div>
+        </div>
+        <div class="modal-footer">
+        <button type="submit" class="btn btn-success btn-block pull-left" data-dismiss="modal" id="helps3"><span class="glyphicon glyphicon-remove"></span> Continuar</button>
+        <button type="submit" class="btn btn-danger btn-default pull-right" data-dismiss="modal" id="help_cancel"><span class="glyphicon glyphicon-remove"></span> Salir de ayuda</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 <?php include('footer.php'); ?>
